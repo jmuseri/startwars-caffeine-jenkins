@@ -8,7 +8,6 @@ import com.museri.model.StarWarsCharacter;
 import com.museri.service.StarWarsService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import reactor.core.publisher.Mono;
 
 
 
@@ -20,7 +19,8 @@ public class StarWarsController {
 
 	@Operation(summary = "Retrieves a Star wars Character by its ID.")
     @GetMapping("/characters/{id}")
-    public Mono<StarWarsCharacter> getCharacterById(@PathVariable int id) {
-        return starWarsService.getCharacterById(id);
+    public StarWarsCharacter getCharacterById(@PathVariable int id) {
+		StarWarsCharacter character =starWarsService.getCharacterById(id); 
+        return character;
     }
 }
